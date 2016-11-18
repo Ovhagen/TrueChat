@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/Chat.css'
+import './css/Chat.css';
 import * as firebase from 'firebase';
 
 
@@ -75,6 +75,8 @@ class Chat extends Component{
 
     firebase.database().ref('chatMessages/' + nextMessage.id).set(nextMessage);
 
+    var messageForm = document.getElementById('message-form');
+    messageForm.reset();
     /**var list = Object.assign([], this.state.messages);
     list.push(nextMessage);
     this.setState({
@@ -92,13 +94,13 @@ class Chat extends Component{
 
     return (
       <div className="Chat">
-              Messages:
+              <h4>Messages:</h4>
               <div className="container">
               <ul>
                 {currentMessages}
               </ul>
               <div className="row">
-                <form className="col s12">
+                <form id="message-form" className="col s12">
                   <div className="row">
                     <div className="input-field col s6">
                       <i className="material-icons prefix">mode_edit</i>
@@ -107,10 +109,10 @@ class Chat extends Component{
                     </div>
                   </div>
                 </form>
-                <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.submitMessage}>
+                  <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.submitMessage}>
                   Submit
                   <i className="material-icons right">send</i>
-                </button>
+                  </button>
               </div>
               </div>
           </div>
