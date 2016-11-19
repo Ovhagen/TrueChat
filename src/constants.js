@@ -10,8 +10,5 @@ import * as firebase from 'firebase';
   };
   firebase.initializeApp(config);
 
-  const C = {
-    FIREBASE: firebase
-  };
-
-  export default C;
+  export const ref = firebase.database().ref();
+  export const firebaseAuth = firebase.auth;

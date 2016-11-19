@@ -17,3 +17,7 @@
 .row .col.s6 {
   margin-top: 30px;
 }
+
+#btn-logout {
+  margin-left: 70%;
+}

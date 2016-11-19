@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/Chat.css';
 import * as firebase from 'firebase';
+import { logout } from './auth';
 
 
 /**A component that handles chat messages*/
@@ -41,7 +42,6 @@ class Chat extends Component{
       });
   }
 
-
 /**Renders messages with materialize component*/
   renderMessage(message){
     return(
@@ -77,11 +77,13 @@ class Chat extends Component{
 
     var messageForm = document.getElementById('message-form');
     messageForm.reset();
+
     /**var list = Object.assign([], this.state.messages);
     list.push(nextMessage);
     this.setState({
       messages: list
     });*/
+
   }
 
 
@@ -94,8 +96,11 @@ class Chat extends Component{
 
     return (
       <div className="Chat">
-              <h4>Messages:</h4>
-              <div className="container">
+        <button id="btn-logout"className="waves-effect waves-light btn teal lighten-5" type="submit" onClick={() => {logout()}}>
+          <span className="teal-text text-darken-2">Logout</span>
+        </button>
+            <h4>Messages:</h4>
+            <div className="container">
               <ul>
                 {currentMessages}
               </ul>
@@ -104,17 +109,17 @@ class Chat extends Component{
                   <div className="row">
                     <div className="input-field col s6">
                       <i className="material-icons prefix">mode_edit</i>
-                      <textarea id="icon_prefix2" className="materialize-textarea" onChange={this.updateMessage} placeholder="Enter message here"></textarea>
+                      <textarea id="icon_prefix2" className="materialize-textarea" onChange={this.updateMessage}></textarea>
                       <label for="icon_prefix2">Message</label>
                     </div>
                   </div>
                 </form>
-                  <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.submitMessage}>
+                  <button className="btn waves-effect waves-light" type="submit" onClick={this.submitMessage}>
                   Submit
                   <i className="material-icons right">send</i>
                   </button>
               </div>
-              </div>
+            </div>
           </div>
     );
   }
