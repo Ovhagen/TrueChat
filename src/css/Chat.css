@@ -2,11 +2,10 @@
   margin: 0 auto;
 }
 
-.container {
+.container .row {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .row .col {
   width: 50%;
@@ -16,6 +15,10 @@
 
 .row .col.s6 {
   margin-top: 30px;
+}
+
+#display-message{
+  width: 30%;
 }
 
 #btn-logout {

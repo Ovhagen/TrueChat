@@ -68,13 +68,17 @@ class Chat extends Component{
 /**Submits a message and updates the state for the message list*/
   submitMessage(event){
     console.log('submitMessage: ' + this.state.message);
+    const d = new Date();
+    const messageDate = d.toDateString();
+    const messageTime = d.toTimeString();
     const nextMessage = {
       id: this.state.messages.length,
-      text: this.state.message
+      text: this.state.message,
+      date: messageDate,
+      time: messageTime
     };
 
     firebase.database().ref('chatMessages/' + nextMessage.id).set(nextMessage);
-
     var messageForm = document.getElementById('message-form');
     messageForm.reset();
 
