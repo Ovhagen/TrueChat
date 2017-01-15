@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 //import C from './constants';
-import './css/Login.css';
-import { login } from './auth';
+import './login.css';
+import { login } from '../../utilities/auth';
 
 
 class Login extends Component{
 
+  constructor(){
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      status: ''
+    }
+  }
+
     handleSubmit = (e) => {
       e.preventDefault();
-      login(this.email.value, this.pw.value);
+      let newStatus = login(this.email.value, this.pw.value);
+      this.setState({
+        status: newStatus
+      })
+      console.log(newStatus);
     }
 
   render(){
+    var {status} = this.state;
     return(
       <div className="Login">
         <h4>Enter your credentials</h4>

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './css/App.css';
-import Chat from './Chat';
-import Login from './Login';
-import { firebaseAuth } from './constants';
+import logo from '../../logo.svg';
+import './app.css';
+import Chat from '../Chat/Chat';
+import Login from '../Login/Login';
+import { firebaseAuth } from '../../utilities/constants';
 class App extends Component {
-
 
   constructor(props){
     super(props);

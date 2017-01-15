@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './css/Chat.css';
+import './chat.css';
 import * as firebase from 'firebase';
-import { logout } from './auth';
+import { logout } from '../../utilities/auth';
 
 
 /**A component that handles chat messages*/
